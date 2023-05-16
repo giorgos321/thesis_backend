@@ -7,26 +7,33 @@ async function fillData() {
 
 	await sequelize.models.lab.bulkCreate([
 		{
-			lab_name: 'Lab 1'
-		},
-		{
-			lab_name: 'Lab 2'
-		},
-		{
-			lab_name: 'Lab 3'
-		},
-		{
-			lab_name: 'Lab 4'
-		},
-		{
-			lab_name: 'Lab 5'
-		},
-		{
-			lab_name: 'Lab 6'
-		},
-		{
-			lab_name: 'Lab 7'
-		}
+			lab_name: "Introduction to Programming",
+			lab_description: "This class provides an introduction to programming concepts and techniques using a high-level programming language. Topics include variables, control structures, functions, and basic data structures."
+		  },
+		  {
+			lab_name: "Data Structures and Algorithms",
+			lab_description: "This class covers advanced data structures and algorithms used in computer science. Topics include linked lists, stacks, queues, trees, graphs, sorting algorithms, and searching algorithms."
+		  },
+		  {
+			lab_name: "Database Management Systems",
+			lab_description: "This class focuses on the principles and techniques of database management systems. Topics include data modeling, relational databases, SQL, and database design."
+		  },
+		  {
+			lab_name: "Operating Systems",
+			lab_description: "This class explores the concepts and components of operating systems. Topics include process management, memory management, file systems, and synchronization."
+		  },
+		  {
+			lab_name: "Computer Networks",
+			lab_description: "This class covers the fundamentals of computer networks and network protocols. Topics include network architecture, TCP/IP, routing, network security, and wireless networks."
+		  },
+		  {
+			lab_name: "Web Development",
+			lab_description: "This class focuses on developing dynamic web applications. Topics include HTML, CSS, JavaScript, server-side scripting, and frameworks like Node.js and React."
+		  },
+		  {
+			lab_name: "Artificial Intelligence",
+			lab_description: "This class explores the concepts and techniques of artificial intelligence. Topics include machine learning, natural language processing, neural networks, and intelligent agents."
+		  }
 	]);
 	await sequelize.models.teacher.bulkCreate([
 		{
@@ -53,25 +60,32 @@ async function fillData() {
 	]);
 	await sequelize.models.student.bulkCreate([
 		{
-			name: 'Palikari 1'
+			name: 'Palikari 1',
+			register_number: 3250
 		},
 		{
-			name: 'Palikari 2'
+			name: 'Palikari 2',
+			register_number: 3250
 		},
 		{
-			name: 'Palikari 3'
+			name: 'Palikari 3',
+			register_number: 3250
 		},
 		{
-			name: 'Palikari 4'
+			name: 'Palikari 4',
+			register_number: 3250
 		},
 		{
-			name: 'Palikari 5'
+			name: 'Palikari 5',
+			register_number: 3250
 		},
 		{
-			name: 'Palikari 6'
+			name: 'Palikari 6',
+			register_number: 3250
 		},
 		{
-			name: 'Palikari 7'
+			name: 'Palikari 7',
+			register_number: 3250
 		}
 	]);
 

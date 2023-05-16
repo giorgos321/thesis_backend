@@ -3,35 +3,28 @@ const { getIdParam } = require('../helpers');
 const { models, fn, col, QueryTypes } = sequelize
 
 async function getAll(req, res) {
-	const labinstance = await sequelize.query(`SELECT labinst.id,
-	labinst.StartAt,
-	labinst.EndAt,
-	labinst.createdAt,
-	labinst.updatedAt,
-	labinst.teacherId,
-	labinst.lab_name,
-	labinst.day,
-	count(studentId) as studentCount FROM 
-	(SELECT labinstances.id,
-		labinstances.StartAt,
-		labinstances.EndAt,
-		labinstances.createdAt,
-		labinstances.updatedAt,
-		labinstances.teacherId,
-		labinstances.day,
-		labs.lab_name FROM labinstances LEFT JOIN labs ON labinstances.labId = labs.id) AS labinst LEFT JOIN subscriptions ON labinst.id = subscriptions.labInstanceId GROUP BY id`,{ type: QueryTypes.SELECT , })
+	const labinstance = await models.labInstance.findAll({
+		attributes: ['id','StartAt','EndAt'],
+		include: [{
+			model: models.lab,
+			attributes: ['lab_description', 'lab_name'],
+		},
+		{ model: models.teacher },
+		{ model: models.student, attributes: ['name','register_number'] }]
+	});
 	res.status(200).json(labinstance);
 };
 
 async function getById(req, res) {
 	const id = getIdParam(req);
 	// Labinstance with students
-	const labinstance = await models.labInstance.findByPk(id,{
+	const labinstance = await models.labInstance.findByPk(id, {
 		include: [{
-		model: models.student,
-		as: 'students',
-		attributes: ["id", 'name']
-	}]});
+			model: models.student,
+			as: 'students',
+			attributes: ["id", 'name']
+		}]
+	});
 
 	if (labinstance) {
 		res.status(200).json(labinstance);

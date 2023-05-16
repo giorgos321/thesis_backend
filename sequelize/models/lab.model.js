@@ -14,6 +14,11 @@ module.exports = (sequelize) => {
             allowNull: false,
             type: DataTypes.STRING,
             unique: true
+        },
+        lab_description: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
         }
     });
 }

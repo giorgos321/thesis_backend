@@ -16,5 +16,9 @@ module.exports = (sequelize) => {
 			allowNull: false,
 			type: DataTypes.STRING
 		},
+		register_number:{
+			allowNull: false,
+			type: DataTypes.INTEGER
+		}
 	});
 };
