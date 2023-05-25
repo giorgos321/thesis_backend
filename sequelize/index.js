@@ -1,16 +1,24 @@
 const { Sequelize } = require('sequelize');
 const { applyExtraSetup } = require('./extra-setup');
+require('dotenv').config()
 const mysql2 = require('mysql2');
 
 // In a real app, you should keep the database connection URL as an environment variable.
 // But for this example, we will just use a local SQLite database.
-// const sequelize = new Sequelize(process.env.DB_CONNECTION_URL);
-const sequelize = new Sequelize('app', 'root', 'root', {
-	dialect: 'mysql',
+// const sequelize = new Sequelize(process.env.DATABASE_URL);
+const sequelize = new Sequelize({
+	database: "test",
+	username: "2dmo6WmKAKdVzAU.root",
+	password: "8BwfHkaP9Db423li",
+	host: "gateway01.us-east-1.prod.aws.tidbcloud.com",
+	dialect: "mysql",
 	dialectModule: mysql2,
-	logQueryParameters: true,
-	benchmark: true
-});
+	ssl: {
+		minVersion: 'TLSv1.2',
+		rejectUnauthorized: false
+		
+		}
+  });
 // console.log(process.argv);
 for (const arg of process.argv.filter(a => a.includes('--'))) {
 	// console.log(arg);
