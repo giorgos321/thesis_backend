@@ -27,9 +27,9 @@ async function init() {
 
 init();
 
-// module.exports.handler = serverless(app,{
-// 	request: (req,event,context) => {
-// 		req.event = event
-// 		req.context = context
-// 	}
-// })
+module.exports.handler = serverless(app,{
+	request: (req,event,context) => {
+		req.event = event
+		req.context = context
+	}
+})
