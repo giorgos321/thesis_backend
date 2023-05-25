@@ -199,3 +199,6 @@ export async function roleSetup() {
 roleSetup();
 
 fillData();
+
+module.exports.roleSetup = roleSetup;
+module.exports.fillData = fillData;
