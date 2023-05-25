@@ -1,6 +1,6 @@
 const sequelize = require('../sequelize');
 
-async function fillData() {
+export async function fillData() {
 	console.log('Will rewrite the SQLite example database, adding some dummy data.');
 
 	await sequelize.sync({ force: false });
