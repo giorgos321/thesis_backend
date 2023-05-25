@@ -7,16 +7,17 @@ const mysql2 = require('mysql2');
 // But for this example, we will just use a local SQLite database.
 // const sequelize = new Sequelize(process.env.DATABASE_URL);
 const sequelize = new Sequelize({
-	database: "test",
-	username: "2dmo6WmKAKdVzAU.root",
-	password: "8BwfHkaP9Db423li",
-	host: "gateway01.us-east-1.prod.aws.tidbcloud.com",
+	database: 'test',
+	username: process.env.TIDB_USER,
+	password: process.env.TIDB_PASSWORD,
+	host: process.env.TIDB_HOST,
+	port: process.env.TIDB_PORT,
 	dialect: "mysql",
 	dialectModule: mysql2,
 	ssl: {
 		minVersion: 'TLSv1.2',
-		rejectUnauthorized: false
-		
+		rejectUnauthorized: true,
+		ca: process.env.TIDB_SSL_CA
 		}
   });
 // console.log(process.argv);
