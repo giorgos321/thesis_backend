@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "vercel-build": "npm start",
     "dev:sync": "nodemon index.js --sync",
     "setup-example-db": "node example-database/setup.js",
     "filldb": "node example-database/fillData.js"
