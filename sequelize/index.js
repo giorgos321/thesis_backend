@@ -17,7 +17,7 @@ const sequelize = new Sequelize({
 	ssl: {
 		minVersion: 'TLSv1.2',
 		rejectUnauthorized: true,
-		ca: process.env.TIDB_SSL_CA
+		// ca: process.env.TIDB_SSL_CA
 		}
   });
 
