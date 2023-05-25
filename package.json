@@ -24,6 +24,7 @@
     "moment": "^2.29.3",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.16",
-    "sequelize": "^6.3.3"
+    "sequelize": "^6.3.3",
+    "serverless-http": "^3.2.0"
   }
 }

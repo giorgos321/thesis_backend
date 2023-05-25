@@ -1,4 +1,5 @@
 const app = require('./express/app');
+const serverless = require('serverless-http')
 const sequelize = require('./sequelize');
 const PORT = 8080;
 
@@ -25,3 +26,10 @@ async function init() {
 }
 
 init();
+
+module.exports.handler = serverless(app,{
+	request: (req,event,context) => {
+		req.event = event
+		req.context = context
+	}
+})
