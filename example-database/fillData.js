@@ -1,6 +1,6 @@
 const sequelize = require('../sequelize');
 
-export async function fillData() {
+async function fillData() {
 	console.log('Will rewrite the SQLite example database, adding some dummy data.');
 
 	await sequelize.sync({ force: false });
@@ -177,7 +177,7 @@ export async function fillData() {
 	console.log('Done!');
 }
 
-export async function roleSetup() {
+async function roleSetup() {
 	await sequelize.models.roles.bulkCreate([
 		{
 			id: 1,
