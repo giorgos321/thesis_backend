@@ -2,7 +2,6 @@ const { Sequelize } = require('sequelize');
 const { applyExtraSetup } = require('./extra-setup');
 require('dotenv').config()
 const mysql2 = require('mysql2');
-const { fillData, roleSetup } = require('../example-database/fillData');
 
 // In a real app, you should keep the database connection URL as an environment variable.
 // But for this example, we will just use a local SQLite database.
@@ -22,9 +21,6 @@ const sequelize = new Sequelize({
 		}
   });
 
-  roleSetup().then(() => {
-	fillData()
-  })
 // console.log(process.argv);
 for (const arg of process.argv.filter(a => a.includes('--'))) {
 	// console.log(arg);
