@@ -1,11 +1,13 @@
 const { Sequelize } = require('sequelize');
 const { applyExtraSetup } = require('./extra-setup');
+const mysql2 = require('mysql2');
 
 // In a real app, you should keep the database connection URL as an environment variable.
 // But for this example, we will just use a local SQLite database.
 // const sequelize = new Sequelize(process.env.DB_CONNECTION_URL);
 const sequelize = new Sequelize('app', 'root', 'root', {
 	dialect: 'mysql',
+	dialectModule: mysql2,
 	logQueryParameters: true,
 	benchmark: true
 });
