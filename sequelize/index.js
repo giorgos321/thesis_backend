@@ -21,8 +21,6 @@ const sequelize = new Sequelize({
 		ca: process.env.TIDB_SSL_CA
 		}
   });
-  roleSetup()
-  fillData()
 // console.log(process.argv);
 for (const arg of process.argv.filter(a => a.includes('--'))) {
 	// console.log(arg);
