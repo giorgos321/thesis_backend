@@ -177,7 +177,7 @@ export async function fillData() {
 	console.log('Done!');
 }
 
-async function roleSetup() {
+export async function roleSetup() {
 	await sequelize.models.roles.bulkCreate([
 		{
 			id: 1,
