@@ -9,9 +9,9 @@ const routes = {
 	orchestras: require('./routes/orchestras'),
 	labs: require('./routes/lab'),
 	teacher: require('./routes/teachers'),
-	labinstance:  require('./routes/labInstance'),
+	labinstance: require('./routes/labInstance'),
 	student: require('./routes/student'),
-	subscriptions:  require('./routes/subscription')
+	subscriptions: require('./routes/subscription')
 	// Add more routes here...
 	// items: require('./routes/items'),
 };
@@ -27,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const auth = require('./auth/auth.router');
+const { roleSetup, fillData } = require('../example-database/fillData');
 
 auth(app)
 
@@ -50,6 +51,19 @@ app.get('/', (req, res) => {
 		<p>To experiment with POST/PUT/DELETE requests, use a tool for creating HTTP requests such as <a href='https://github.com/jakubroztocil/httpie#readme'>HTTPie</a>, <a href='https://www.postman.com/downloads/'>Postman</a>, or even <a href='https://en.wikipedia.org/wiki/CURL'>the curl command</a>, or write some JS code for it with <a href='https://github.com/sindresorhus/got#readme'>got</a>, <a href='https://github.com/sindresorhus/ky#readme'>ky</a> or <a href='https://github.com/axios/axios#readme'>axios</a>.</p>
 	`);
 });
+
+app.get('/filldb', async (req, res) => {
+	try {
+		await roleSetup();
+
+		await fillData();
+
+		res.status(200).send('Data filled successfully to DB')
+	} catch (error) {
+		res.status(500).send(error)
+	}
+})
+
 const middleware = [authJwt.verifyToken];
 
 // We define the standard REST APIs for each route (if they exist).

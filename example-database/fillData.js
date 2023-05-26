@@ -196,9 +196,9 @@ async function roleSetup() {
 	]);
 }
 
-roleSetup();
+// roleSetup();
 
-fillData();
+// fillData();
 
 module.exports.roleSetup = roleSetup;
 module.exports.fillData = fillData;
