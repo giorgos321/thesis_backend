@@ -6,19 +6,19 @@ const mysql2 = require('mysql2');
 // In a real app, you should keep the database connection URL as an environment variable.
 // But for this example, we will just use a local SQLite database.
 // const sequelize = new Sequelize(process.env.DATABASE_URL);
-const sequelize = new Sequelize({
-	database: 'test',
-	username: process.env.TIDB_USER,
-	password: process.env.TIDB_PASSWORD,
-	host: process.env.TIDB_HOST,
-	port: process.env.TIDB_PORT,
+const sequelize = new Sequelize('app','xm74ap4h5ijbt68iliiz','pscale_pw_DjK0XLzJXVbDM1VMTuJYrMWGFGtTZs0A9PZCuHoV48R',{
+	// database: 'app',
+	// username: 'xm74ap4h5ijbt68iliiz',
+	// password: 'pscale_pw_DjK0XLzJXVbDM1VMTuJYrMWGFGtTZs0A9PZCuHoV48R',
+	host: 'aws.connect.psdb.cloud',
+	// port: process.env.TIDB_PORT,
 	dialect: "mysql",
 	dialectModule: mysql2,
-	ssl: {
-		minVersion: 'TLSv1.2',
-		rejectUnauthorized: true,
-		ca: process.env.TIDB_SSL_CA
-		}
+	dialectOptions: {
+		ssl: {
+		  rejectUnauthorized: true,
+		},
+	  },
   });
 
 // console.log(process.argv);
