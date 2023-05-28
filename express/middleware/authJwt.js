@@ -13,7 +13,10 @@ verifyToken = (req, res, next) => {
 
   jwt.verify(token, config.secret, (err, decoded) => {
     if (err) {
-      return res.status(401).send(err);
+      if(err.name === 'TokenExpiredError'){
+        return res.status(401).send({ message: 'H συνεδρία έληξε' });
+      }
+      return res.status(401).send({ message: err.message });
     }
     req.userId = decoded.id;
     next();
