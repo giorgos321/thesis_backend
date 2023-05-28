@@ -16,7 +16,7 @@ verifyToken = (req, res, next) => {
       if(err.name === 'TokenExpiredError'){
         return res.status(401).send({ message: 'H συνεδρία έληξε' });
       }
-      return res.status(401).send({ message: err.message });
+      return res.status(401).json({ message: err.message });
     }
     req.userId = decoded.id;
     next();
