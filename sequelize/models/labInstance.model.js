@@ -21,12 +21,16 @@ module.exports = (sequelize) => {
             type: DataTypes.TIME
         },
         startRecur: {
-            allowNull: true,
+            allowNull: false,
             type: DataTypes.DATE,
         },
         endRecur: {
-            allowNull: true,
+            allowNull: false,
             type: DataTypes.DATE,
+        },
+        color: {
+            allowNull: true,
+            type: DataTypes.STRING
         }
       });
 }

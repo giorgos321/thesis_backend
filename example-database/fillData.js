@@ -98,6 +98,7 @@ async function fillData() {
 			daysOfWeek: 1,
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
+			color: '#3788d8'
 		},
 		{
 			labId: 3,
@@ -107,6 +108,7 @@ async function fillData() {
 			daysOfWeek: 2,
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
+			color: '#8fdf82'
 		},
 		{
 			labId: 3,
@@ -116,6 +118,7 @@ async function fillData() {
 			daysOfWeek: 3,
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
+			color: '#8fdf82'
 		},
 		{
 			labId: 2,
@@ -125,6 +128,7 @@ async function fillData() {
 			daysOfWeek: 4,
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
+			color: '#3788d8'
 		},
 		{
 			labId: 4,
@@ -134,6 +138,7 @@ async function fillData() {
 			daysOfWeek: 5,
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
+			color: '#3788d8'
 		},
 		{
 			labId: 1,
@@ -143,6 +148,7 @@ async function fillData() {
 			daysOfWeek: 6,
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
+			color: '#8fdf82'
 		},
 		{
 			labId: 6,
@@ -152,6 +158,7 @@ async function fillData() {
 			daysOfWeek: 1,
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
+			color: '#3788d8'
 		},
 	]);
 
