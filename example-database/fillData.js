@@ -93,51 +93,65 @@ async function fillData() {
 		{
 			labId: 3,
 			teacherId: 7,
-			StartAt: '09:10',
-			EndAt: '09:30',
-			day: 1
+			startTime: '10:10',
+			endTime: '10:30',
+			daysOfWeek: 1,
+			startRecur: "2023-05-02",
+    		endRecur: "2023-06-30",
 		},
 		{
 			labId: 3,
 			teacherId: 6,
-			StartAt: '09:10',
-			EndAt: '09:30',
-			day: 1
+			startTime: '12:10',
+			endTime: '12:30',
+			daysOfWeek: 2,
+			startRecur: "2023-05-02",
+    		endRecur: "2023-06-30",
 		},
 		{
 			labId: 3,
 			teacherId: 4,
-			StartAt: '09:10',
-			EndAt: '09:30',
-			day: 1
+			startTime: '13:10',
+			endTime: '13:30',
+			daysOfWeek: 3,
+			startRecur: "2023-05-02",
+    		endRecur: "2023-06-30",
 		},
 		{
 			labId: 2,
 			teacherId: 3,
-			StartAt: '09:10',
-			EndAt: '09:30',
-			day: 1
+			startTime: '17:10',
+			endTime: '17:30',
+			daysOfWeek: 4,
+			startRecur: "2023-05-02",
+    		endRecur: "2023-06-30",
 		},
 		{
 			labId: 4,
 			teacherId: 5,
-			StartAt: '09:10',
-			EndAt: '09:30',
-			day: 1
+			startTime: '19:10',
+			endTime: '19:30',
+			daysOfWeek: 5,
+			startRecur: "2023-05-02",
+    		endRecur: "2023-06-30",
 		},
 		{
 			labId: 1,
 			teacherId: 3,
-			StartAt: '09:10',
-			EndAt: '09:30',
-			day: 1
+			startTime: '09:10',
+			endTime: '09:30',
+			daysOfWeek: 6,
+			startRecur: "2023-05-02",
+    		endRecur: "2023-06-30",
 		},
 		{
 			labId: 6,
 			teacherId: 1,
-			StartAt: '09:10',
-			EndAt: '09:30',
-			day: 1
+			startTime: '09:10',
+			endTime: '09:30',
+			daysOfWeek: 1,
+			startRecur: "2023-05-02",
+    		endRecur: "2023-06-30",
 		},
 	]);
 
