@@ -4,7 +4,7 @@ const { models, fn, col, QueryTypes } = sequelize
 
 async function getAll(req, res) {
 	const labinstance = await models.labInstance.findAll({
-		attributes: ['id','StartAt','EndAt'],
+		attributes: ['id','startTime','endTime','daysOfWeek','startRecur','endRecur'],
 		include: [{
 			model: models.lab,
 			attributes: ['lab_description', 'lab_name'],
