@@ -37,8 +37,7 @@ function makeHandlerAwareOfAsyncErrors(handler) {
 		try {
 			await handler(req, res);
 		} catch (error) {
-			res.send(error)
-			// next(error);
+			res.status(500).send(error)
 		}
 	};
 }
