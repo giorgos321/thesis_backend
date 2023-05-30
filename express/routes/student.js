@@ -48,6 +48,12 @@ async function remove(req, res) {
 			id: id
 		}
 	});
+
+	await models.subscription.destroy({
+		where: {
+			studentId: id
+		}
+	});
 	res.status(200).end();
 };
 

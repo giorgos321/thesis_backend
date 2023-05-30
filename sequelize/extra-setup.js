@@ -9,11 +9,32 @@ function applyExtraSetup(sequelize) {
 	teacher.hasMany(labInstance, { foreignKey: { allowNull: false }, constraints: false });
 	labInstance.belongsTo(teacher, { foreignKey: { allowNull: false }, constraints: false });
 
-	// lab.belongsToMany(teacher, { through: { model: labInstance, unique: false },foreignKey: 'labId' });
-	// teacher.belongsToMany(lab, { through: { model: labInstance, unique: false },foreignKey: 'teacherId' });
-
 	labInstance.belongsToMany(student, { through: { model: subscription, unique: false },constraints: false });
 	student.belongsToMany(labInstance, { through: { model: subscription, unique: false },constraints: false });
+
+	labInstance.beforeBulkDestroy(async (options) => {
+		const instances = await labInstance.findAll({
+			where: options.where,
+			raw: true
+		});
+		await subscription.destroy({
+			where:{
+				labInstanceId: instances.map(i => i.id)
+			}
+		})
+	});
+
+	// labInstance.beforeBulkDestroy(async (options) => {
+	// 	const instances = await labInstance.findAll({
+	// 		where: options.where,
+	// 		raw: true
+	// 	});
+	// 	await subscription.destroy({
+	// 		where:{
+	// 			studentId: instances.map(i => i.id)
+	// 		}
+	// 	})
+	// });
 
 	roles.belongsToMany(user, {
 		through: "user_roles",
