@@ -162,6 +162,12 @@ async function fillData() {
 		},
 	]);
 
+	await sequelize.models.user.create({
+		email: 'lame.giorgos@gmail.com',
+		username: 'George',
+		password: '$2a$08$izpxbnDlA7CNiLhflqECUOxlfFgvp4us.7c6RIyhknkaRk/qkPPw2'
+	})
+	// lame.giorgos@gmail.com	George	$2a$08$izpxbnDlA7CNiLhflqECUOxlfFgvp4us.7c6RIyhknkaRk/qkPPw2
 	await sequelize.models.subscription.bulkCreate([
 		{
 			labInstanceId: 3,

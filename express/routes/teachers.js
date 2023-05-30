@@ -48,6 +48,13 @@ async function remove(req, res) {
 			id: id
 		}
 	});
+	
+	await models.labInstance.destroy({
+        where: {
+            teacherId: id
+        }
+    });
+
 	res.status(200).end();
 };
 

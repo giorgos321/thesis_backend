@@ -76,7 +76,7 @@ async function remove(req, res) {
         }
     });
 
-    await models.labInstances.destroy({
+    await models.labInstance.destroy({
         where: {
             labId: id
         }
