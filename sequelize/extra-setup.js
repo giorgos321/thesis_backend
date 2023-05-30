@@ -3,10 +3,10 @@ function applyExtraSetup(sequelize) {
 
 
 
-	lab.hasMany(labInstance, { foreignKey: { allowNull: false }, constraints: false });
+	lab.hasMany(labInstance, { foreignKey: { allowNull: false }, constraints: false,onDelete: 'cascade' });
 	labInstance.belongsTo(lab, { foreignKey: { allowNull: false }, constraints: false });
 
-	teacher.hasMany(labInstance, { foreignKey: { allowNull: false }, constraints: false });
+	teacher.hasMany(labInstance, { foreignKey: { allowNull: false }, constraints: false,onDelete: 'cascade' });
 	labInstance.belongsTo(teacher, { foreignKey: { allowNull: false }, constraints: false });
 
 	// lab.belongsToMany(teacher, { through: { model: labInstance, unique: false },foreignKey: 'labId' });
