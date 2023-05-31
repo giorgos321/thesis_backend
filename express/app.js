@@ -3,6 +3,8 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 const { authJwt } = require('./middleware');
 
+const sequelize = require('../sequelize');
+
 const routes = {
 	users: require('./routes/users'),
 	instruments: require('./routes/instruments'),
@@ -52,8 +54,10 @@ app.get('/', (req, res) => {
 	`);
 });
 
-app.get('/filldb', async (req, res) => {
+app.get('/resetdb', async (req, res) => {
 	try {
+		await sequelize.sync({ force: true });
+
 		await roleSetup();
 
 		await fillData();
