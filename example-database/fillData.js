@@ -163,7 +163,7 @@ async function fillData() {
 	]);
 
 	await sequelize.models.user.create({
-		email: 'lame.giorgos@gmail.com',
+		email: 'admin@admin.com',
 		username: 'George',
 		password: '$2a$08$izpxbnDlA7CNiLhflqECUOxlfFgvp4us.7c6RIyhknkaRk/qkPPw2'
 	})
