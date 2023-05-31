@@ -8,32 +8,46 @@ async function fillData() {
 	await sequelize.models.lab.bulkCreate([
 		{
 			lab_name: "Introduction to Programming",
-			lab_description: "This class provides an introduction to programming concepts and techniques using a high-level programming language. Topics include variables, control structures, functions, and basic data structures."
-		  },
+			lab_description: "This class provides an introduction to programming concepts and techniques using a high-level programming language. Topics include variables, control structures, functions, and basic data structures.",
+			lab_year: 2022,
+			lab_semester: 4
+		},
 		  {
 			lab_name: "Data Structures and Algorithms",
-			lab_description: "This class covers advanced data structures and algorithms used in computer science. Topics include linked lists, stacks, queues, trees, graphs, sorting algorithms, and searching algorithms."
-		  },
+			lab_description: "This class covers advanced data structures and algorithms used in computer science. Topics include linked lists, stacks, queues, trees, graphs, sorting algorithms, and searching algorithms.",
+			lab_year: 2023,
+			lab_semester: 2
+		},
 		  {
 			lab_name: "Database Management Systems",
-			lab_description: "This class focuses on the principles and techniques of database management systems. Topics include data modeling, relational databases, SQL, and database design."
-		  },
+			lab_description: "This class focuses on the principles and techniques of database management systems. Topics include data modeling, relational databases, SQL, and database design.",
+			lab_year: 2021,
+			lab_semester: 5
+		},
 		  {
 			lab_name: "Operating Systems",
-			lab_description: "This class explores the concepts and components of operating systems. Topics include process management, memory management, file systems, and synchronization."
-		  },
+			lab_description: "This class explores the concepts and components of operating systems. Topics include process management, memory management, file systems, and synchronization.",
+			lab_year: 2021,
+			lab_semester: 3
+		},
 		  {
 			lab_name: "Computer Networks",
-			lab_description: "This class covers the fundamentals of computer networks and network protocols. Topics include network architecture, TCP/IP, routing, network security, and wireless networks."
-		  },
+			lab_description: "This class covers the fundamentals of computer networks and network protocols. Topics include network architecture, TCP/IP, routing, network security, and wireless networks.",
+			lab_year: 2020,
+			lab_semester: 1
+		},
 		  {
 			lab_name: "Web Development",
-			lab_description: "This class focuses on developing dynamic web applications. Topics include HTML, CSS, JavaScript, server-side scripting, and frameworks like Node.js and React."
-		  },
+			lab_description: "This class focuses on developing dynamic web applications. Topics include HTML, CSS, JavaScript, server-side scripting, and frameworks like Node.js and React.",
+			lab_year: 2022,
+			lab_semester: 1
+		},
 		  {
 			lab_name: "Artificial Intelligence",
-			lab_description: "This class explores the concepts and techniques of artificial intelligence. Topics include machine learning, natural language processing, neural networks, and intelligent agents."
-		  }
+			lab_description: "This class explores the concepts and techniques of artificial intelligence. Topics include machine learning, natural language processing, neural networks, and intelligent agents.",
+			lab_year: 2023,
+			lab_semester: 7
+		}
 	]);
 	await sequelize.models.teacher.bulkCreate([
 		{

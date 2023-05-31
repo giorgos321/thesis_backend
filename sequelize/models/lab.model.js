@@ -19,6 +19,16 @@ module.exports = (sequelize) => {
             allowNull: true,
             type: DataTypes.STRING,
             unique: false
+        },
+        lab_year: {
+            allowNull: false,
+            type: DataTypes.INTEGER,
+            unique: false
+        },
+        lab_semester: {
+            allowNull: false,
+            type: DataTypes.INTEGER,
+            unique: false
         }
     });
 }
