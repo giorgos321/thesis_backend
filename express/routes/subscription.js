@@ -1,3 +1,4 @@
+const { HasMany } = require('sequelize');
 const { models } = require('../../sequelize');
 const { getIdParam } = require('../helpers');
 // const { students } = models
@@ -11,16 +12,26 @@ async function getAll(req, res) {
 async function getById(req, res) {
 	const id = getIdParam(req);
 	//labInstanceId
-	const sub = await models.subscription.findAll(id, { 
-		include: [{ model: models.student }],
-		where: {
-			labInstanceId: id
-		} });
-	if (sub) {
-		res.status(200).json(sub);
-	} else {
-		res.status(404).send('404 - Not found');
+	try {
+		const sub = await models.subscription.findAll({ 
+			where: {
+				labInstanceId: id
+			},
+			include: { 
+				model: models.student,
+				association: models.subscription.hasMany(models.student,{ foreignKey: 'id', sourceKey: 'studentId' }),
+				attributes: ['id','name']
+			 },
+		 });
+		 if (sub) {''
+			res.status(200).json(sub);
+		}
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
 	}
+	
+	
 };
 
 async function create(req, res) {
