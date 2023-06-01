@@ -7,7 +7,7 @@ async function getAll(req, res) {
 		attributes: ['id','startTime','endTime','daysOfWeek','startRecur','endRecur','color'],
 		include: [{
 			model: models.lab,
-			attributes: ['lab_description', 'lab_name'],
+			attributes: ['id','lab_description', 'lab_name'],
 		},
 		{ model: models.teacher },
 		{ model: models.student, attributes: ['name','register_number'] }]
