@@ -17,15 +17,15 @@ async function getById(req, res) {
 			where: {
 				labInstanceId: id
 			},
+			attributes: ['absense','studentId'],
 			include: { 
 				model: models.student,
-				association: models.subscription.hasMany(models.student,{ foreignKey: 'id', sourceKey: 'studentId' }),
-				attributes: ['id','name']
+				association: models.subscription.hasMany(models.student,{ foreignKey: 'id', sourceKey: 'studentId',as: 'student' }),
+				attributes: ['id','name'],
 			 },
 		 });
-		 if (sub) {''
-			res.status(200).json(sub);
-		}
+		 
+		res.status(200).json(sub);
 	} catch (error) {
 		console.log(error);
 		res.status(500).send(error);
