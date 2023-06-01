@@ -10,7 +10,12 @@ async function getAll(req, res) {
 
 async function getById(req, res) {
 	const id = getIdParam(req);
-	const sub = await models.subscription.findByPk(id, { include: [{ model: models.student }] });
+	//labInstanceId
+	const sub = await models.subscription.findAll(id, { 
+		include: [{ model: models.student }],
+		where: {
+			labInstanceId: id
+		} });
 	if (sub) {
 		res.status(200).json(sub);
 	} else {
