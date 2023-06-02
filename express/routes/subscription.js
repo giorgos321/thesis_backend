@@ -59,13 +59,19 @@ async function update(req, res) {
 };
 
 async function remove(req, res) {
-	const id = getIdParam(req);
-	await models.subscription.destroy({
-		where: {
-			id: id
-		}
-	});
-	res.status(200).end();
+	try {
+		const { labInstanceId,studentId } = req.body;
+
+		await models.subscription.destroy({
+			where: {
+				labInstanceId: labInstanceId,
+				studentId: studentId
+			}
+		});
+		res.status(200).end();
+	} catch (error) {
+		res.status(500).send(error);
+	}
 };
 
 module.exports = {
