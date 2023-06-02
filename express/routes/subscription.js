@@ -33,12 +33,13 @@ async function getById(req, res) {
 };
 
 async function create(req, res) {
-	if (req.body.id) {
-		res.status(400).send(`Bad request: ID should not be provided, since it is determined automatically by the database.`)
-	} else {
-		await models.subscription.create(req.body);
-		res.status(201).end();
-	}
+		try {
+			await models.subscription.bulkCreate(req.body);
+			res.status(201).end();
+		} catch (error) {
+			console.log(error);
+			res.status(500).send(error);
+		}
 };
 
 async function update(req, res) {
