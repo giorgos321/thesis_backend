@@ -42,19 +42,19 @@ async function create(req, res) {
 };
 
 async function update(req, res) {
-	const id = getIdParam(req);
+		try {
+			const { labInstanceId,studentId } = req.body;
 
-	// We only accept an UPDATE request if the `:id` param matches the body `id`
-	if (req.body.id === id) {
-		await models.subscription.update(req.body, {
-			where: {
-				id: id
-			}
-		});
-		res.status(200).end();
-	} else {
-		res.status(400).send(`Bad request: param ID (${id}) does not match body ID (${req.body.id}).`);
-	}
+			await models.subscription.update(req.body, {
+				where: {
+					labInstanceId: labInstanceId,
+					studentId: studentId
+				}
+			});
+			res.status(200).end();
+		} catch (error) {
+			res.status(500).send(error);
+		}
 };
 
 async function remove(req, res) {
