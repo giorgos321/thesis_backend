@@ -20,7 +20,7 @@ async function getById(req, res) {
 			attributes: ['absense','studentId'],
 			include: { 
 				model: models.student,
-				association: models.subscription.hasMany(models.student,{ foreignKey: 'id', sourceKey: 'studentId',as: 'student' }),
+				association: models.subscription.hasMany(models.student,{ foreignKey: 'id', sourceKey: 'studentId' }),
 				attributes: ['id','name'],
 			 },
 		 });
