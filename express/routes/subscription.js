@@ -17,7 +17,6 @@ async function getById(req, res) {
 			where: {
 				labInstanceId: id
 			},
-			attributes: ['absense','studentId'],
 			include: { 
 				model: models.student,
 				association: models.subscription.hasMany(models.student,{ foreignKey: 'id', sourceKey: 'studentId' })
