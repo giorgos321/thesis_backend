@@ -7,48 +7,48 @@ async function fillData() {
 
 	await sequelize.models.lab.bulkCreate([
 		{
-			lab_name: "Introduction to Programming",
-			lab_description: "This class provides an introduction to programming concepts and techniques using a high-level programming language. Topics include variables, control structures, functions, and basic data structures.",
-			lab_year: 2022,
-			lab_semester: 4
+		  lab_name: "Εισαγωγή στον Προγραμματισμό",
+		  lab_description: "Αυτή η τάξη παρέχει μια εισαγωγή στις έννοιες και τεχνικές του προγραμματισμού χρησιμοποιώντας μια γλώσσα προγραμματισμού υψηλού επιπέδου. Θέματα περιλαμβάνουν μεταβλητές, δομές ελέγχου, συναρτήσεις και βασικές δομές δεδομένων.",
+		  lab_year: 2022,
+		  lab_semester: 4
 		},
-		  {
-			lab_name: "Data Structures and Algorithms",
-			lab_description: "This class covers advanced data structures and algorithms used in computer science. Topics include linked lists, stacks, queues, trees, graphs, sorting algorithms, and searching algorithms.",
-			lab_year: 2023,
-			lab_semester: 2
+		{
+		  lab_name: "Δομές Δεδομένων και Αλγόριθμοι",
+		  lab_description: "Αυτή η τάξη καλύπτει προηγμένες δομές δεδομένων και αλγόριθμους που χρησιμοποιούνται στην επιστήμη των υπολογιστών. Θέματα περιλαμβάνουν συνδεδεμένες λίστες, στοίβες, ουρές, δέντρα, γραφήματα, αλγόριθμους ταξινόμησης και αναζήτησης.",
+		  lab_year: 2023,
+		  lab_semester: 2
 		},
-		  {
-			lab_name: "Database Management Systems",
-			lab_description: "This class focuses on the principles and techniques of database management systems. Topics include data modeling, relational databases, SQL, and database design.",
-			lab_year: 2021,
-			lab_semester: 5
+		{
+		  lab_name: "Συστήματα Διαχείρισης Βάσεων Δεδομένων",
+		  lab_description: "Αυτή η τάξη επικεντρώνεται στις αρχές και τεχνικές των συστημάτων διαχείρισης βάσεων δεδομένων. Θέματα περιλαμβάνουν μοντελοποίηση δεδομένων, σχεσιακές βάσεις δεδομένων, SQL και σχεδίαση βάσεων δεδομένων.",
+		  lab_year: 2021,
+		  lab_semester: 5
 		},
-		  {
-			lab_name: "Operating Systems",
-			lab_description: "This class explores the concepts and components of operating systems. Topics include process management, memory management, file systems, and synchronization.",
-			lab_year: 2021,
-			lab_semester: 3
+		{
+		  lab_name: "Λειτουργικά Συστήματα",
+		  lab_description: "Αυτή η τάξη εξερευνά τις έννοιες και τα στοιχεία των λειτουργικών συστημάτων. Θέματα περιλαμβάνουν διαχείριση διεργασιών, διαχείριση μνήμης, συστήματα αρχείων και συγχρονισμό.",
+		  lab_year: 2021,
+		  lab_semester: 3
 		},
-		  {
-			lab_name: "Computer Networks",
-			lab_description: "This class covers the fundamentals of computer networks and network protocols. Topics include network architecture, TCP/IP, routing, network security, and wireless networks.",
-			lab_year: 2020,
-			lab_semester: 1
+		{
+		  lab_name: "Υπολογιστικά Δίκτυα",
+		  lab_description: "Αυτή η τάξη καλύπτει τις βασικές αρχές των υπολογιστικών δικτύων και πρωτοκόλλων δικτύου. Θέματα περιλαμβάνουν αρχιτεκτονική δικτύου, TCP/IP, δρομολόγηση, ασφάλεια δικτύου και ασύρματα δίκτυα.",
+		  lab_year: 2020,
+		  lab_semester: 1
 		},
-		  {
-			lab_name: "Web Development",
-			lab_description: "This class focuses on developing dynamic web applications. Topics include HTML, CSS, JavaScript, server-side scripting, and frameworks like Node.js and React.",
-			lab_year: 2022,
-			lab_semester: 1
+		{
+		  lab_name: "Ανάπτυξη Ιστού",
+		  lab_description: "Αυτή η τάξη επικεντρώνεται στην ανάπτυξη δυναμικών εφαρμογών ιστού. Θέματα περιλαμβάνουν HTML, CSS, JavaScript, server-side scripting και πλαίσια όπως το Node.js και το React.",
+		  lab_year: 2022,
+		  lab_semester: 1
 		},
-		  {
-			lab_name: "Artificial Intelligence",
-			lab_description: "This class explores the concepts and techniques of artificial intelligence. Topics include machine learning, natural language processing, neural networks, and intelligent agents.",
-			lab_year: 2023,
-			lab_semester: 7
+		{
+		  lab_name: "Τεχνητή Νοημοσύνη",
+		  lab_description: "Αυτή η τάξη εξερευνά τις έννοιες και τεχνικές της τεχνητής νοημοσύνης. Θέματα περιλαμβάνουν μηχανική μάθηση, επεξεργασία φυσικής γλώσσας, νευρωνικά δίκτυα και έξυπνους πράκτορες.",
+		  lab_year: 2023,
+		  lab_semester: 7
 		}
-	]);
+	  ]);
 	await sequelize.models.teacher.bulkCreate([
 		{
 		  name: "Δημήτριος Παπαδόπουλος"
