@@ -51,57 +51,225 @@ async function fillData() {
 	]);
 	await sequelize.models.teacher.bulkCreate([
 		{
-			name: 'Papas'
+		  name: "Δημήτριος Παπαδόπουλος"
 		},
 		{
-			name: 'Papadakis'
+		  name: "Αθηνά Καραμανλή"
 		},
 		{
-			name: 'Antonis'
+		  name: "Ελευθερία Νικολάου"
 		},
 		{
-			name: 'Spyrou'
+		  name: "Γεώργιος Σταματόπουλος"
 		},
 		{
-			name: 'Ksenakis'
+		  name: "Σοφία Ανδρέου"
 		},
 		{
-			name: 'Monolopoulos'
+		  name: "Νικόλαος Γεωργίου"
 		},
 		{
-			name: 'Theoxarakhs'
+		  name: "Ελένη Παπανδρέου"
+		},
+		{
+		  name: "Ανδρέας Κυριακού"
+		},
+		{
+		  name: "Μαρία Αντωνίου"
+		},
+		{
+		  name: "Πέτρος Παπαδόπουλος"
+		},
+		{
+		  name: "Δημήτρης Χριστοδούλου"
+		},
+		{
+		  name: "Αναστασία Κωνσταντίνου"
+		},
+		{
+		  name: "Χρήστος Δημητρίου"
+		},
+		{
+		  name: "Ευαγγελία Παναγιώτου"
+		},
+		{
+		  name: "Ιωάννα Παπανικολάου"
+		},
+		{
+		  name: "Θεόδωρος Μαρκόπουλος"
+		},
+		{
+		  name: "Αλεξάνδρα Λεοντίου"
+		},
+		{
+		  name: "Δημήτριος Πέτρου"
+		},
+		{
+		  name: "Αικατερίνη Κυριακίδου"
+		},
+		{
+		  name: "Μιχάλης Στεφανίδης"
+		},
+		{
+		  name: "Φωτεινή Παντελίδου"
+		},
+		{
+		  name: "Γεώργιος Παπαδάκης"
+		},
+		{
+		  name: "Αθανάσιος Βλαχάκης"
+		},
+		{
+		  name: "Αναστασία Μαρκοπούλου"
+		},
+		{
+		  name: "Κωνσταντίνος Σπυρίδωνος"
+		},
+		{
+		  name: "Ελένη Νικολάου"
+		},
+		{
+		  name: "Σταμάτης Αντωνίου"
+		},
+		{
+		  name: "Μαρία Στεφανίδη"
+		},
+		{
+		  name: "Παύλος Κυριακού"
+		},
+		{
+		  name: "Δήμητρα Παπανδρέου"
+		},
+		{
+		  name: "Ιάκωβος Καραμανλής"
 		}
-	]);
+	  ]);
 	await sequelize.models.student.bulkCreate([
 		{
-			name: 'Palikari 1',
-			register_number: 3250
+		  name: "Γεώργιος Δημητρίου",
+		  register_number: 1351
 		},
 		{
-			name: 'Palikari 2',
-			register_number: 3250
+		  name: "Αναστασία Καραμαντζίου",
+		  register_number: 5351
 		},
 		{
-			name: 'Palikari 3',
-			register_number: 3250
+		  name: "Ευαγγελία Παπαναστασίου",
+		  register_number: 9351
 		},
 		{
-			name: 'Palikari 4',
-			register_number: 3250
+		  name: "Σπυρίδων Ανδρέου",
+		  register_number: 3351
 		},
 		{
-			name: 'Palikari 5',
-			register_number: 3250
+		  name: "Ελένη Μαρκοπούλου",
+		  register_number: 7351
 		},
 		{
-			name: 'Palikari 6',
-			register_number: 3250
+		  name: "Δημήτριος Νικολαΐδης",
+		  register_number: 2351
 		},
 		{
-			name: 'Palikari 7',
-			register_number: 3250
+		  name: "Μαρία Σωτηρίου",
+		  register_number: 6351
+		},
+		{
+		  name: "Αθανάσιος Παναγιώτου",
+		  register_number: 2351
+		},
+		{
+		  name: "Κατερίνα Σπυροπούλου",
+		  register_number: 4351
+		},
+		{
+		  name: "Παύλος Κωνσταντινίδης",
+		  register_number: 7451
+		},
+		{
+		  name: "Χριστίνα Παπαδάκη",
+		  register_number: 2351
+		},
+		{
+		  name: "Γιώργος Βλαχάκης",
+		  register_number: 6351
+		},
+		{
+		  name: "Μαρία Κυριακίδη",
+		  register_number: 2351
+		},
+		{
+		  name: "Δημοσθένης Παπαδόπουλος",
+		  register_number: 4351
+		},
+		{
+		  name: "Σοφία Ανδρικοπούλου",
+		  register_number: 8351
+		},
+		{
+		  name: "Νικόλαος Παπαγιάννης",
+		  register_number: 2351
+		},
+		{
+		  name: "Αγγελική Σταματίου",
+		  register_number: 6351
+		},
+		{
+		  name: "Θεοδόσης Λεοντίου",
+		  register_number: 2351
+		},
+		{
+		  name: "Δέσποινα Μιχαηλίδου",
+		  register_number: 4351
+		},
+		{
+		  name: "Αλέξανδρος Κωνσταντίνου",
+		  register_number: 8351
+		},
+		{
+		  name: "Χρυσάνθη Νικολαΐδου",
+		  register_number: 2351
+		},
+		{
+		  name: "Στέλιος Μαρκού",
+		  register_number: 6351
+		},
+		{
+		  name: "Αντωνία Σπυρίδωνος",
+		  register_number: 2351
+		},
+		{
+		  name: "Ιάσονας Παπαγεωργίου",
+		  register_number: 4351
+		},
+		{
+		  name: "Ελισάβετ Χριστοφορίδου",
+		  register_number: 8351
+		},
+		{
+		  name: "Μιχάλης Παπαδόπουλος",
+		  register_number: 2351
+		},
+		{
+		  name: "Δήμητρα Πετρίδου",
+		  register_number: 6351
+		},
+		{
+		  name: "Παναγιώτης Αναστασιάδης",
+		  register_number: 2351
+		},
+		{
+		  name: "Ελένη Κυριακοπούλου",
+		  register_number: 4351
+		},
+		{
+		  name: "Κωνσταντίνος Δημόπουλος",
+		  register_number: 8351
+		},
+		{
+		  name: "Σταμάτης Σωτηριάδης",
+		  register_number: 2351
 		}
-	]);
+	  ]);
 
 	await sequelize.models.labInstance.bulkCreate([
 		{
