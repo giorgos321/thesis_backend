@@ -109,7 +109,7 @@ async function fillData() {
 			teacherId: 7,
 			startTime: '10:00',
 			endTime: '12:30',
-			daysOfWeek: 1,
+			daysOfWeek: '1',
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
 			color: '#2196F3'
@@ -119,7 +119,7 @@ async function fillData() {
 			teacherId: 6,
 			startTime: '12:00',
 			endTime: '14:30',
-			daysOfWeek: 2,
+			daysOfWeek: '2',
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
 			color: '#4CAF50'
@@ -129,7 +129,7 @@ async function fillData() {
 			teacherId: 4,
 			startTime: '13:00',
 			endTime: '15:30',
-			daysOfWeek: 3,
+			daysOfWeek: '3',
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
 			color: '#4CAF50'
@@ -139,7 +139,7 @@ async function fillData() {
 			teacherId: 3,
 			startTime: '17:00',
 			endTime: '19:30',
-			daysOfWeek: 4,
+			daysOfWeek: '4',
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
 			color: '#2196F3'
@@ -149,7 +149,7 @@ async function fillData() {
 			teacherId: 5,
 			startTime: '19:00',
 			endTime: '21:30',
-			daysOfWeek: 5,
+			daysOfWeek: '5',
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
 			color: '#2196F3'
@@ -159,7 +159,7 @@ async function fillData() {
 			teacherId: 3,
 			startTime: '09:00',
 			endTime: '10:30',
-			daysOfWeek: 6,
+			daysOfWeek: '4',
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
 			color: '#4CAF50'
@@ -169,7 +169,7 @@ async function fillData() {
 			teacherId: 1,
 			startTime: '09:00',
 			endTime: '11:30',
-			daysOfWeek: 1,
+			daysOfWeek: '1',
 			startRecur: "2023-05-02",
     		endRecur: "2023-06-30",
 			color: '#2196F3'
