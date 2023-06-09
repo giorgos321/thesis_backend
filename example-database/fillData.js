@@ -359,7 +359,7 @@ async function fillData() {
 		{
 			labInstanceId: 3,
 			studentId: 6,
-			subscriptionDate: "2023-05-02"
+			subscriptionDate: "2023-06-02"
 		},
 		{
 			labInstanceId: 3,
