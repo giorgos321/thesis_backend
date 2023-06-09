@@ -6,9 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "dev:local": "nodemon index.js --localDB",
     "dev:sync": "nodemon index.js --sync",
+    "dev:sync:local": "nodemon index.js --sync --localDB",
     "setup-example-db": "node example-database/setup.js",
-    "filldb": "node example-database/fillData.js"
+    "filldb": "node example-database/fillData.js --localDB"
   },
   "engines": {
     "node": ">=10"

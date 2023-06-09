@@ -3,30 +3,53 @@ const { applyExtraSetup } = require('./extra-setup');
 require('dotenv').config()
 const mysql2 = require('mysql2');
 
-// In a real app, you should keep the database connection URL as an environment variable.
-// But for this example, we will just use a local SQLite database.
-// const sequelize = new Sequelize(process.env.DATABASE_URL);
-const sequelize = new Sequelize('app','xm74ap4h5ijbt68iliiz','pscale_pw_DjK0XLzJXVbDM1VMTuJYrMWGFGtTZs0A9PZCuHoV48R',{
-	// database: 'app',
-	// username: 'xm74ap4h5ijbt68iliiz',
-	// password: 'pscale_pw_DjK0XLzJXVbDM1VMTuJYrMWGFGtTZs0A9PZCuHoV48R',
-	host: 'aws.connect.psdb.cloud',
-	// port: process.env.TIDB_PORT,
-	dialect: "mysql",
-	dialectModule: mysql2,
-	dialectOptions: {
-		ssl: {
-		  rejectUnauthorized: true,
-		},
-	  },
-  });
-
-// console.log(process.argv);
-for (const arg of process.argv.filter(a => a.includes('--'))) {
-	// console.log(arg);
-	if (arg === '--sync') {
-		sequelize.sync({ force: true });
+const checkForArg = (strArg) => {
+	for (const arg of process.argv.filter(a => a.includes('--'))) {
+		if (arg === strArg) {
+			return true;
+		}
 	}
+	return false;
+}
+
+const connectToDB = () => {
+	
+	if(checkForArg('--localDB')){
+		try {
+			console.log('Trying to connect to localDB');
+			return new Sequelize('app','root','root',{
+				dialect: "mysql",
+				dialectModule: mysql2
+			});
+		} catch (error) {
+			console.log(error);
+		}
+		
+	} else {
+		try {
+			const { PLANETSCALE_DB_HOST, PLANETSCALE_DB_USERNAME, PLANETSCALE_DB_PASSWORD} = process.env;
+
+			console.log('Trying to connect to remoteDB');
+			return new Sequelize('app',PLANETSCALE_DB_USERNAME,PLANETSCALE_DB_PASSWORD,{
+				host: PLANETSCALE_DB_HOST,
+				dialect: "mysql",
+				dialectModule: mysql2,
+				dialectOptions: {
+					ssl: {
+					rejectUnauthorized: true,
+					},
+				},
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	}
+}
+
+const sequelize = connectToDB();
+
+if(checkForArg('--sync')){
+sequelize.sync({ force: true });
 }
 
 const modelDefiners = [
