@@ -353,31 +353,38 @@ async function fillData() {
 	await sequelize.models.subscription.bulkCreate([
 		{
 			labInstanceId: 3,
-			studentId: 7
+			studentId: 6,
+			subscriptionDate: "2023-05-02"
 		},
 		{
 			labInstanceId: 3,
-			studentId: 6
+			studentId: 6,
+			subscriptionDate: "2023-05-02"
 		},
 		{
 			labInstanceId: 3,
-			studentId: 4
+			studentId: 4,
+			subscriptionDate: "2023-05-02"
 		},
 		{
 			labInstanceId: 2,
-			studentId: 3
+			studentId: 3,
+			subscriptionDate: "2023-05-02"
 		},
 		{
 			labInstanceId: 4,
-			studentId: 5
+			studentId: 5,
+			subscriptionDate: "2023-05-02"
 		},
 		{
 			labInstanceId: 1,
-			studentId: 3
+			studentId: 3,
+			subscriptionDate: "2023-05-02"
 		},
 		{
 			labInstanceId: 6,
-			studentId: 1
+			studentId: 1,
+			subscriptionDate: "2023-05-02"
 		},
 	]);
 
