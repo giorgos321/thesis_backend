@@ -9,7 +9,7 @@ async function getAll(req, res) {
 			model: models.lab,
 			attributes: ['id','lab_description', 'lab_name'],
 		},
-		{ model: models.user },
+		{ model: models.user,attributes: ['id','username'] },
 		{ model: models.student, attributes: ['name','register_number'] }]
 	});
 	res.status(200).json(labinstance);
