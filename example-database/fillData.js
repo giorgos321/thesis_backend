@@ -274,7 +274,7 @@ async function fillData() {
 	await sequelize.models.labInstance.bulkCreate([
 		{
 			labId: 3,
-			teacherId: 7,
+			teacherId: 1,
 			startTime: '10:00',
 			endTime: '12:30',
 			daysOfWeek: '1',
@@ -284,7 +284,7 @@ async function fillData() {
 		},
 		{
 			labId: 3,
-			teacherId: 6,
+			teacherId: 1,
 			startTime: '12:00',
 			endTime: '14:30',
 			daysOfWeek: '2',
@@ -294,7 +294,7 @@ async function fillData() {
 		},
 		{
 			labId: 3,
-			teacherId: 4,
+			teacherId: 1,
 			startTime: '13:00',
 			endTime: '15:30',
 			daysOfWeek: '3',
@@ -304,7 +304,7 @@ async function fillData() {
 		},
 		{
 			labId: 2,
-			teacherId: 3,
+			teacherId: 1,
 			startTime: '17:00',
 			endTime: '19:30',
 			daysOfWeek: '4',
@@ -314,7 +314,7 @@ async function fillData() {
 		},
 		{
 			labId: 4,
-			teacherId: 5,
+			teacherId: 1,
 			startTime: '19:00',
 			endTime: '21:30',
 			daysOfWeek: '5',
@@ -324,7 +324,7 @@ async function fillData() {
 		},
 		{
 			labId: 1,
-			teacherId: 3,
+			teacherId: 1,
 			startTime: '09:00',
 			endTime: '10:30',
 			daysOfWeek: '4',
@@ -346,7 +346,7 @@ async function fillData() {
 
 	await sequelize.models.user.create({
 		email: 'admin@admin.com',
-		username: 'George',
+		username: 'admin',
 		password: '$2a$08$izpxbnDlA7CNiLhflqECUOxlfFgvp4us.7c6RIyhknkaRk/qkPPw2'
 	})
 	// lame.giorgos@gmail.com	George	$2a$08$izpxbnDlA7CNiLhflqECUOxlfFgvp4us.7c6RIyhknkaRk/qkPPw2

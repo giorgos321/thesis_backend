@@ -6,8 +6,8 @@ function applyExtraSetup(sequelize) {
 	lab.hasMany(labInstance, { foreignKey: { allowNull: false }, constraints: false });
 	labInstance.belongsTo(lab, { foreignKey: { allowNull: false }, constraints: false });
 
-	teacher.hasMany(labInstance, { foreignKey: { allowNull: false }, constraints: false });
-	labInstance.belongsTo(teacher, { foreignKey: { allowNull: false }, constraints: false });
+	user.hasMany(labInstance, { foreignKey: 'teacherId', constraints: false });
+	labInstance.belongsTo(user, { foreignKey: 'teacherId', constraints: false });
 
 	labInstance.belongsToMany(student, { through: { model: subscription, unique: false },constraints: false });
 	student.belongsToMany(labInstance, { through: { model: subscription, unique: false },constraints: false });
