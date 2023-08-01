@@ -3,9 +3,7 @@ const { getIdParam } = require('../helpers');
 
 async function getAll(req, res) {
 	const users = await models.user.findAll({
-		include: [{
-			model: models.labInstance, include: models.lab
-		}]
+		attributes: ['id','username','role','email']
 	});
 	res.status(200).json(users);
 };

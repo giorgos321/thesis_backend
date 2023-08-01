@@ -4,6 +4,9 @@ const { models, fn, col, QueryTypes } = sequelize
 
 async function getAll(req, res) {
 	const labinstance = await models.labInstance.findAll({
+		where: req.isAdmin ? {} : {
+			teacherId: req.userId
+		},
 		attributes: ['id','startTime','endTime','daysOfWeek','startRecur','endRecur','color'],
 		include: [{
 			model: models.lab,

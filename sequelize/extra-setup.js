@@ -36,18 +36,18 @@ function applyExtraSetup(sequelize) {
 	// 	})
 	// });
 
-	roles.belongsToMany(user, {
-		through: "user_roles",
-		foreignKey: "roleId",
-		otherKey: "userId",
-		constraints: false,
-	});
-	user.belongsToMany(roles, {
-		through: "user_roles",
-		foreignKey: "userId",
-		otherKey: "roleId",
-		constraints: false,
-	});
+	// roles.belongsToMany(user, {
+	// 	through: "user_roles",
+	// 	foreignKey: "roleId",
+	// 	otherKey: "userId",
+	// 	constraints: false,
+	// });
+	// user.belongsTo(roles, {
+	// 	through: "user_roles",
+	// 	foreignKey: "id",
+	// 	otherKey: "userId",
+	// 	constraints: false,
+	// });
 
 }
 

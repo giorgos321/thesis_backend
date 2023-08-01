@@ -1,6 +1,5 @@
 const { models } = require('../../sequelize');
 const { getIdParam } = require('../helpers');
-const moment = require('moment');
 
 async function getAll(req, res) {
     const lab = await models.lab.findAll();

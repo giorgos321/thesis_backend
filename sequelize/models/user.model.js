@@ -32,5 +32,9 @@ module.exports = (sequelize) => {
 			type: DataTypes.STRING,
 			unique: false
 		},
+		role: {
+			allowNull: false,
+            type: DataTypes.ENUM('1','2','3')
+		}
 	});
 };

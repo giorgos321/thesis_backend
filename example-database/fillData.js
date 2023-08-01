@@ -279,7 +279,7 @@ async function fillData() {
 			endTime: '12:30',
 			daysOfWeek: '1',
 			startRecur: "2023-05-02",
-    		endRecur: "2023-06-30",
+    		endRecur: "2023-10-30",
 			color: '#2196F3'
 		},
 		{
@@ -289,7 +289,7 @@ async function fillData() {
 			endTime: '14:30',
 			daysOfWeek: '2',
 			startRecur: "2023-05-02",
-    		endRecur: "2023-06-30",
+    		endRecur: "2023-10-30",
 			color: '#4CAF50'
 		},
 		{
@@ -299,56 +299,64 @@ async function fillData() {
 			endTime: '15:30',
 			daysOfWeek: '3',
 			startRecur: "2023-05-02",
-    		endRecur: "2023-06-30",
+    		endRecur: "2023-10-30",
 			color: '#4CAF50'
 		},
 		{
 			labId: 2,
-			teacherId: 1,
+			teacherId: 2,
 			startTime: '17:00',
 			endTime: '19:30',
 			daysOfWeek: '4',
 			startRecur: "2023-05-02",
-    		endRecur: "2023-06-30",
+    		endRecur: "2023-10-30",
 			color: '#2196F3'
 		},
 		{
 			labId: 4,
-			teacherId: 1,
+			teacherId: 2,
 			startTime: '19:00',
 			endTime: '21:30',
 			daysOfWeek: '5',
 			startRecur: "2023-05-02",
-    		endRecur: "2023-06-30",
+    		endRecur: "2023-10-30",
 			color: '#2196F3'
 		},
 		{
 			labId: 1,
-			teacherId: 1,
+			teacherId: 2,
 			startTime: '09:00',
 			endTime: '10:30',
 			daysOfWeek: '4',
 			startRecur: "2023-05-02",
-    		endRecur: "2023-06-30",
+    		endRecur: "2023-10-30",
 			color: '#4CAF50'
 		},
 		{
 			labId: 6,
-			teacherId: 1,
+			teacherId: 2,
 			startTime: '09:00',
 			endTime: '11:30',
 			daysOfWeek: '1',
 			startRecur: "2023-05-02",
-    		endRecur: "2023-06-30",
+    		endRecur: "2023-10-30",
 			color: '#2196F3'
 		},
 	]);
 
-	await sequelize.models.user.create({
+	await sequelize.models.user.bulkCreate([{
 		email: 'admin@admin.com',
 		username: 'admin',
-		password: '$2a$08$izpxbnDlA7CNiLhflqECUOxlfFgvp4us.7c6RIyhknkaRk/qkPPw2'
-	})
+		password: '$2a$08$izpxbnDlA7CNiLhflqECUOxlfFgvp4us.7c6RIyhknkaRk/qkPPw2',
+		role: 3
+	},
+	{
+		email: 'lame.giorgos@gmail.com',
+		username: 'George',
+		password: '$2a$08$izpxbnDlA7CNiLhflqECUOxlfFgvp4us.7c6RIyhknkaRk/qkPPw2',
+		role: 1
+	}])
+
 	// lame.giorgos@gmail.com	George	$2a$08$izpxbnDlA7CNiLhflqECUOxlfFgvp4us.7c6RIyhknkaRk/qkPPw2
 	await sequelize.models.subscription.bulkCreate([
 		{
@@ -411,6 +419,10 @@ async function roleSetup() {
 		},
 	]);
 }
+
+// await sequelize.models
+
+
 
 // roleSetup();
 

@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const config = require("../auth/auth.conf");
-const sequelize = require('../../sequelize')
+const sequelize = require('../../sequelize');
+const { Roles } = require("../general");
 
 verifyToken = (req, res, next) => {
   let token = req.headers["x-access-token"];
@@ -19,26 +20,28 @@ verifyToken = (req, res, next) => {
       return res.status(401).json({ message: err.message });
     }
     req.userId = decoded.id;
+    req.role = decoded.role
+    if(parseInt(req.role) === Roles.admin){
+      req.isAdmin = true
+    } else {
+      req.isAdmin = false
+    }
     next();
   });
 };
 
 isAdmin = (req, res, next) => {
-    sequelize.models.sequelize.models.user.findByPk(req.userId).then(user => {
-    user.getRoles().then(roles => {
-      for (let i = 0; i < roles.length; i++) {
-        if (roles[i].name === "admin") {
-          next();
-          return;
-        }
-      }
-
-      res.status(403).send({
-        message: "Require Admin Role!"
-      });
-      return;
-    });
+  const roleId = parseInt(req.role);
+  Roles.admin === roleId ? next() : res.status(403).send({
+    message: "Require Admin Role!"
   });
+};
+
+isTeacher = (req, res, next) => {
+    const roleId = parseInt(req.role);
+    (Roles.teacher === roleId || Roles.admin === roleId) ? next() : res.status(403).send({
+      message: "Require Teacher Role!"
+    });
 };
 
 isModerator = (req, res, next) => {
@@ -84,6 +87,7 @@ const authJwt = {
   verifyToken: verifyToken,
   isAdmin: isAdmin,
   isModerator: isModerator,
+  isTeacher: isTeacher,
   isModeratorOrAdmin: isModeratorOrAdmin
 };
 module.exports = authJwt;

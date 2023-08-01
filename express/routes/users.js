@@ -2,8 +2,8 @@ const { models } = require('../../sequelize');
 const { getIdParam } = require('../helpers');
 
 async function getAll(req, res) {
-	const users = await models.user.findAll();
-	res.status(200).json(users);
+	const user = await models.user.findByPk(req.userId,{ attributes: ['id','username','role','email'] })
+	res.status(200).json(user);
 };
 
 async function getById(req, res) {
