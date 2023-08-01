@@ -6,9 +6,7 @@ const { authJwt } = require('./middleware');
 const sequelize = require('../sequelize');
 
 const routes = {
-	users: require('./routes/users'),
-	instruments: require('./routes/instruments'),
-	orchestras: require('./routes/orchestras'),
+	user: require('./routes/users'),
 	labs: require('./routes/lab'),
 	teacher: require('./routes/teachers'),
 	labinstance: require('./routes/labInstance'),
@@ -68,10 +66,11 @@ app.get('/resetdb', async (req, res) => {
 	}
 })
 
-const middleware = [authJwt.verifyToken];
-
 // We define the standard REST APIs for each route (if they exist).
 for (const [routeName, routeController] of Object.entries(routes)) {
+	
+	const middleware = applyMiddleware([authJwt.verifyToken],routeName);
+	
 	if (routeController.getAll) {
 		app.get(
 			`/api/${routeName}`,
@@ -107,6 +106,32 @@ for (const [routeName, routeController] of Object.entries(routes)) {
 			makeHandlerAwareOfAsyncErrors(routeController.remove)
 		);
 	}
+}
+
+function applyMiddleware(middleware,routeName) {
+	switch (routeName) {
+		case 'user':
+			middleware.push(authJwt.isTeacher)
+			break;
+		case 'labs':
+			middleware.push(authJwt.isTeacher)
+			break;
+		case 'teacher':
+			middleware.push(authJwt.isTeacher)
+			break;
+		case 'labinstance':
+			middleware.push(authJwt.isTeacher)
+			break;
+		case 'student':
+			middleware.push(authJwt.isTeacher)
+			break;
+		case 'subscriptions':
+			middleware.push(authJwt.isTeacher)
+			break;
+		default:
+			break;
+	}
+	return middleware;
 }
 
 module.exports = app;
