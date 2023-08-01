@@ -2,7 +2,11 @@ const { models } = require('../../sequelize');
 const { getIdParam } = require('../helpers');
 
 async function getAll(req, res) {
-	const users = await models.user.findAll({ include: [{model:models.labInstance, include: models.lab }] });
+	const users = await models.user.findAll({
+		include: [{
+			model: models.labInstance, include: models.lab
+		}]
+	});
 	res.status(200).json(users);
 };
 
@@ -48,12 +52,12 @@ async function remove(req, res) {
 			id: id
 		}
 	});
-	
+
 	await models.labInstance.destroy({
-        where: {
-            teacherId: id
-        }
-    });
+		where: {
+			teacherId: id
+		}
+	});
 
 	res.status(200).end();
 };
