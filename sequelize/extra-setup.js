@@ -9,8 +9,8 @@ function applyExtraSetup(sequelize) {
 	user.hasMany(labInstance, { foreignKey: 'teacherId', constraints: false });
 	labInstance.belongsTo(user, { foreignKey: 'teacherId', constraints: false });
 
-	labInstance.belongsToMany(student, { through: { model: subscription, unique: false },constraints: false });
-	student.belongsToMany(labInstance, { through: { model: subscription, unique: false },constraints: false });
+	labInstance.belongsToMany(student, { through: { model: subscription, foreignKey: 'labInstanceId' , unique: false },constraints: false });
+	student.belongsToMany(labInstance, { through: { model: subscription, foreignKey: 'studentId', unique: false },constraints: false });
 
 	labInstance.beforeBulkDestroy(async (options) => {
 		const instances = await labInstance.findAll({

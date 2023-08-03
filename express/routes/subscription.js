@@ -1,7 +1,7 @@
 const { HasMany } = require('sequelize');
 const { models } = require('../../sequelize');
 const { getIdParam } = require('../helpers');
-// const { students } = models
+const sequelize = require('../../sequelize');
 
 async function getAll(req, res) {
 	const subs = await models.subscription.findAll({ include: [{ all: true }] });
@@ -14,12 +14,19 @@ async function getById(req, res) {
 	//labInstanceId
 	try {
 		const sub = await models.subscription.findAll({ 
+			attributes: [
+				[sequelize.col('student.name'), 'name'],
+				[sequelize.col('student.id'), 'id'],
+				[sequelize.col('student.register_number'), 'register_number'],
+				'subscriptionDate',
+			],
 			where: {
 				labInstanceId: id
 			},
 			include: { 
+				attributes: [],
 				model: models.student,
-				association: models.subscription.hasMany(models.student,{ foreignKey: 'id', sourceKey: 'studentId' })
+				association: models.subscription.hasOne(models.student,{ foreignKey: 'id', sourceKey: 'studentId' })
 			 },
 		 });
 		 
@@ -60,12 +67,13 @@ async function update(req, res) {
 
 async function remove(req, res) {
 	try {
-		const { labInstanceId,studentId } = req.body;
+		const { labInstanceId,studentId,subscriptionDate } = req.body;
 
 		await models.subscription.destroy({
 			where: {
 				labInstanceId: labInstanceId,
-				studentId: studentId
+				studentId: studentId,
+				subscriptionDate: subscriptionDate
 			}
 		});
 		res.status(200).end();
